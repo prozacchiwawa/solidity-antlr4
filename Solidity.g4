@@ -44,8 +44,17 @@ importDirective
   | 'import' ('*' | identifier) ('as' identifier)? 'from' StringLiteral ';'
   | 'import' '{' importDeclaration ( ',' importDeclaration )* '}' 'from' StringLiteral ';' ;
 
+contractKeyword
+  : 'contract' ;
+
+interfaceKeyword
+ : 'interface' ;
+
+libraryKeyword
+ : 'library' ;
+
 contractDefinition
-  : ( 'contract' | 'interface' | 'library' ) identifier
+  : ( contractKeyword | interfaceKeyword | libraryKeyword ) identifier
     ( 'is' inheritanceSpecifier (',' inheritanceSpecifier )* )?
     '{' contractPart* '}' ;
 
